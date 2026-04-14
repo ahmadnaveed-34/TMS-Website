@@ -1,0 +1,28 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-container {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.scroll-container:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
