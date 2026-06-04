@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./TestimonialsAndFAQ.css";
+import { Star, HelpCircle, ChevronDown, Quote } from "lucide-react";
 import testimonial1 from "../../assets/testtimonial1.png";
 import testimonial2 from "../../assets/testtimonial2.png";
+import ScrollReveal from "../../components/ScrollReveal";
 
 const TestimonialsAndFAQ = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,7 +11,7 @@ const TestimonialsAndFAQ = () => {
     {
       id: 1,
       quote: "Game-changer for project efficiency!",
-      text: "TMS collaborative tools have transformed how we work together, making teamwork effortless and more Efficiently.",
+      text: "TMS's collaborative tools have transformed how we work together, making teamwork effortless and more efficient.",
       name: "John Doe",
       title: "CEO At Zenith",
       image: testimonial1,
@@ -18,10 +19,26 @@ const TestimonialsAndFAQ = () => {
     {
       id: 2,
       quote: "Effortless Testing with TMS!",
-      text: "TMS features have been instrumental in achieving our project goals efficiently and proceeding Seamlessly.",
+      text: "TMS's features have been instrumental in achieving our project goals efficiently and proceeding seamlessly.",
       name: "David Lee",
       title: "CEO At Apex",
       image: testimonial2,
+    },
+    {
+      id: 3,
+      quote: "Drastically reduced regression time!",
+      text: "We integrated TMS into our CI/CD pipeline and cut our regression testing cycle by 60%. The real-time Slack notifications and automated run results keep the whole engineering team in sync.",
+      name: "Sarah Jenkins",
+      title: "Lead QA Engineer at Finflow",
+      image: "https://ui-avatars.com/api/?name=Sarah+Jenkins&size=120&background=7047eb&color=ffffff&bold=true&rounded=true",
+    },
+    {
+      id: 4,
+      quote: "Unparalleled visibility into releases!",
+      text: "With TMS, I can track release readiness instantly. No more chasing team leads for status updates or digging through spreadsheets. It provides a single source of truth for our entire quality gate.",
+      name: "Marcus Vance",
+      title: "Director of Engineering at CloudScale",
+      image: "https://ui-avatars.com/api/?name=Marcus+Vance&size=120&background=4e3be5&color=ffffff&bold=true&rounded=true",
     },
   ];
 
@@ -46,134 +63,164 @@ const TestimonialsAndFAQ = () => {
       answer:
         "Absolutely! TMS offers flexible reporting options, allowing you to generate detailed insights and dashboards tailored to your project's specific needs and stakeholder requirements.",
     },
+    {
+      question: "How does pricing scale with team size?",
+      answer:
+        "TMS offers flexible tiering. Our Pro plan is billed per seat, allowing you to easily scale up as your QA team or developer involvement grows. Volume discounts are available for enterprise organizations with over 50 seats.",
+    },
+    {
+      question: "Is there a self-hosted/on-premise option?",
+      answer:
+        "Yes, for enterprise teams with strict data residency or compliance requirements, we offer self-hosted deployment options via Docker and Kubernetes. Contact our sales team to discuss on-premise licensing.",
+    },
+    {
+      question: "Does TMS integrate with Jira or Azure DevOps?",
+      answer:
+        "Absolutely! TMS features native, bidirectional sync with Jira, Azure DevOps, and GitHub Issues. You can link test cases to tickets and create bugs automatically upon execution failure.",
+    },
+    {
+      question: "What is the onboarding process?",
+      answer:
+        "Getting started takes minutes. You can import existing test suites via CSV or direct integration. We also provide interactive workspace tours and dedicated customer success manager support for team onboarding.",
+    },
   ];
 
   return (
-    <section className="testimonials-section py-10">
-      <div className="testimonials-container w-[95%] md:w-[90%] max-w-7xl mx-auto">
-        {/* Testimonials Section */}
-        <div className="testimonials-header">
-          <div className="testimonials-badge">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 1L12.5 7.5L19 8L14.5 12.5L16 19L10 15.5L4 19L5.5 12.5L1 8L7.5 7.5L10 1Z"
-                fill="currentColor"
-              />
-            </svg>
-            Our Testimonials
-          </div>
-          <h2 className="testimonials-title">What Our Customers Are Saying</h2>
-          <p className="testimonials-description">
-            Read testimonials from our satisfied customers and learn how TMS has
-            transformed their TMS experience.
-          </p>
+    <section className="py-16 bg-gray-50/50 text-gray-800" id="faq">
+      <div className="w-[95%] md:w-[90%] max-w-7xl mx-auto px-4">
+        {/* Testimonials Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <ScrollReveal animation="fade-in">
+            <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full bg-[#7047eb]/10 border border-[#7047eb]/20 text-sm font-semibold text-[#7047eb] mb-4 uppercase tracking-wider">
+              <Star className="w-4 h-4 fill-[#7047eb]" /> Testimonials
+            </span>
+          </ScrollReveal>
+          <ScrollReveal animation="slide-up" delay={100}>
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-gray-900 leading-tight">
+              What Our Customers Are Saying
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal animation="slide-up" delay={200}>
+            <p className="mt-4 text-gray-500 text-base sm:text-lg">
+              Read testimonials from our satisfied customers and learn how TMS has
+              transformed their SQA experience.
+            </p>
+          </ScrollReveal>
         </div>
 
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="testimonial-card">
-              <div className="testimonial-image">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  onError={(e) => {
-                    e.target.src = `https://ui-avatars.com/api/?name=${testimonial.name}&size=200&background=4F46E5&color=fff`;
-                  }}
-                />
-              </div>
-              <div className="testimonial-content">
-                <div className="quote-icon">
-                  <svg
-                    width="48"
-                    height="48"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 21C12 17.5 14 14 18 12L16.5 9.5C10.5 12 6 17 6 24C6 28.5 9.5 32 14 32C18.5 32 22 28.5 22 24C22 19.5 18.5 16 14 16C13.5 16 13 16.1 12.5 16.2C12.2 17.7 12 19.3 12 21ZM38 21C38 17.5 40 14 44 12L42.5 9.5C36.5 12 32 17 32 24C32 28.5 35.5 32 40 32C44.5 32 48 28.5 48 24C48 19.5 44.5 16 40 16C39.5 16 39 16.1 38.5 16.2C38.2 17.7 38 19.3 38 21Z"
-                      fill="currentColor"
-                    />
-                  </svg>
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+          {testimonials.map((t) => (
+            <ScrollReveal key={t.id} animation="slide-up" delay={t.id * 100}>
+              <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between relative overflow-hidden group">
+                <Quote className="absolute right-6 top-6 w-20 h-20 text-gray-50 opacity-40 group-hover:scale-105 transition-transform duration-300" />
+                
+                <div className="relative z-10">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <h3 className="text-xl font-extrabold text-gray-950 mb-3 font-display">
+                    &ldquo;{t.quote}&rdquo;
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm sm:text-base mb-6">
+                    {t.text}
+                  </p>
                 </div>
-                <h3 className="testimonial-quote">{testimonial.quote}</h3>
-                <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-author">
-                  <p className="author-name">{testimonial.name}</p>
-                  <p className="author-title">{testimonial.title}</p>
+
+                <div className="flex items-center gap-4 relative z-10">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover border border-gray-100 shadow-inner"
+                    onError={(e) => {
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&size=100&background=7047eb&color=fff`;
+                    }}
+                  />
+                  <div>
+                    <h5 className="font-extrabold text-gray-900 text-sm sm:text-base">
+                      {t.name}
+                    </h5>
+                    <p className="text-xs sm:text-sm text-gray-400 font-semibold">
+                      {t.title}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* FAQ Section */}
-        <div className="faq-section">
-          <div className="faq-grid">
-            <div className="faq-info">
-              <div className="faq-badge">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="10"
-                    cy="10"
-                    r="9"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M10 13V13.01M10 10C10 8.5 11.5 8 11.5 6.5C11.5 5.5 10.8 5 10 5C9.2 5 8.5 5.5 8.5 6.5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                FAQ's
-              </div>
-              <h2 className="faq-title">Frequently Asked Questions</h2>
-              <p className="faq-description">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-12 border-t border-gray-100">
+          <div className="lg:col-span-5 text-left flex flex-col gap-5">
+            <ScrollReveal animation="fade-in">
+              <span className="inline-flex items-center gap-1.5 px-4.5 py-1.5 rounded-full bg-[#7047eb]/10 border border-[#7047eb]/20 text-sm font-semibold text-[#7047eb] uppercase tracking-wider w-fit">
+                <HelpCircle className="w-4 h-4" /> FAQs
+              </span>
+            </ScrollReveal>
+            
+            <ScrollReveal animation="slide-right" delay={100}>
+              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-gray-900 leading-tight">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-gray-500 font-medium leading-relaxed mt-3 text-sm sm:text-base">
                 Find answers to commonly asked questions about TMS, covering
                 features, pricing, integrations, and more, to help you make
                 informed decisions for your SQA needs.
               </p>
-              <button className="faq-cta-btn">Start Free Trial</button>
-            </div>
+              <button className="mt-8 bg-gradient-to-r from-[#7a5fff] to-[#4e3be5] text-white px-7 py-3.5 rounded-xl font-bold shadow-md shadow-[#7047eb]/25 hover:shadow-lg hover:shadow-[#7047eb]/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-fit cursor-pointer">
+                Start Free Trial
+              </button>
+            </ScrollReveal>
+          </div>
 
-            <div className="faq-accordion">
-              {faqs.map((faq, index) => (
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            {faqs.map((faq, index) => (
+              <ScrollReveal key={index} animation="slide-up" delay={index * 80}>
                 <div
-                  key={index}
-                  className={`faq-item ${activeIndex === index ? "active" : ""}`}
+                  className={`bg-white border rounded-2xl p-5 transition-all duration-300 ${
+                    activeIndex === index
+                      ? "border-[#7047eb]/35 shadow-sm shadow-[#7047eb]/5"
+                      : "border-gray-100 hover:border-gray-200"
+                  }`}
                 >
-                  <div
-                    className="faq-question"
+                  <button
+                    className="w-full flex items-center justify-between gap-4 font-bold text-gray-900 text-left text-sm sm:text-base cursor-pointer"
                     onClick={() =>
                       setActiveIndex(activeIndex === index ? -1 : index)
                     }
                   >
                     <span>{faq.question}</span>
-                    <span className="faq-icon">
-                      {activeIndex === index ? "−" : "+"}
+                    <span
+                      className={`p-1.5 rounded-lg transition-all duration-300 ${
+                        activeIndex === index
+                          ? "bg-[#7047eb] text-white rotate-180"
+                          : "bg-gray-100 text-gray-500"
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
                     </span>
-                  </div>
-                  <div className="faq-answer">
-                    <p>{faq.answer}</p>
+                  </button>
+                  
+                  {/* Grid-based smooth height transition */}
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      activeIndex === index
+                        ? "grid-rows-[1fr] opacity-100 mt-4"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </div>

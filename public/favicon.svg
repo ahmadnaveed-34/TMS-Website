@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Brand-matched gradient: bright violet → deep indigo (matches website) -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#8b6bff"/>
+      <stop offset="100%" stop-color="#3d29d4"/>
+    </linearGradient>
+    <!-- Subtle top gloss for premium depth -->
+    <linearGradient id="gl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Brand purple gradient background -->
+  <rect width="32" height="32" rx="7.5" fill="url(#bg)"/>
+
+  <!-- Premium gloss overlay (top half only) -->
+  <rect width="32" height="15" rx="7.5" fill="url(#gl)"/>
+
+  <!--
+    Bold "T" Lettermark — precision proportions:
+    - Crossbar: 24px wide (75% of icon), 5.5px tall, fully rounded ends
+    - Stem: 7px wide (solid, readable at 16px), rounded bottom
+    - 0.5px overlap at junction prevents anti-aliasing gaps
+    - Centered horizontally on the 32px canvas (center = x:16)
+  -->
+
+  <!-- T crossbar: wide, thick, rounded -->
+  <rect x="4"    y="7"  width="24" height="5.5" rx="2.75" fill="#ffffff"/>
+
+  <!-- T stem: wide enough to read at 16px, rounded base -->
+  <rect x="12.5" y="12" width="7"  height="13"  rx="2.5"  fill="#ffffff"/>
+</svg>
